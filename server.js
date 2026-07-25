@@ -86,6 +86,11 @@ app.post('/api/process-guide', async (req, res) => {
   }
 });
 
+// Root endpoint - serves index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`⚡ Flex CX Server running on port ${PORT}`);
 });
