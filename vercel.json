@@ -1,15 +1,29 @@
 {
   "version": 2,
+  "buildCommand": "npm install",
   "builds": [
     {
-      "src": "server/server.js",
+      "src": "api/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "static/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "api/server.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "server/server.js"
+      "dest": "/index.html",
+      "status": 200
     }
-  ]
+  ],
+  "env": {
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "NODE_ENV": "production"
+  }
 }
