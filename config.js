@@ -38,19 +38,19 @@ window.ZEX_CONFIG = {
     workSuggestions: true,
     documentProcessing: true,
     smartGuide: true,
-    realTimeCollab: false  // Coming soon
+    realTimeCollab: false
   },
 
   // API Configuration
   api: {
-    timeout: 30000,  // 30 seconds
+    timeout: 30000,
     retries: 3,
-    retryDelay: 1000  // 1 second
+    retryDelay: 1000
   },
 
   // File Upload Configuration
   upload: {
-    maxSize: 50 * 1024 * 1024,  // 50MB
+    maxSize: 50 * 1024 * 1024,
     allowedFormats: [
       'image/png', 'image/jpeg', 'image/webp', 'image/gif',
       'text/plain', 'application/pdf',
