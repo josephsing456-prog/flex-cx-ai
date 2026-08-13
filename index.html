@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flex CX - Professional Intelligence Studio</title>
   <meta name="description" content="Flex CX is a professional customer experience platform powered by Gemini models with data analysis, smart suggestions, document processing, and intelligent chat.">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#0f172a">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="css/chat.css">
-  <link rel="stylesheet" href="css/auth.css">
-  <link rel="stylesheet" href="css/settings.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/chat.css">
+  <link rel="stylesheet" href="/auth.css">
+  <link rel="stylesheet" href="/settings.css">
+  <link rel="stylesheet" href="/responsive.css">
+  <link rel="stylesheet" href="/animations.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="bg-slate-950 text-slate-100 font-['Plus_Jakarta_Sans'] min-h-screen flex flex-col overflow-x-hidden">
@@ -51,7 +51,7 @@
         <svg id="themeIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
       </button>
 
-      <a href="pages/login.html" id="authBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-md transition flex items-center gap-1.5">
+      <a href="/login.html" id="authBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-md transition flex items-center gap-1.5">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
         <span>Sign In</span>
       </a>
@@ -64,7 +64,7 @@
     <!-- Left Conversation Sidebar -->
     <aside id="sidebar" class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col transition-all duration-300 z-30 absolute md:relative inset-y-0 left-0 -translate-x-full md:translate-x-0">
       <div class="p-4 border-b border-slate-800 flex items-center justify-between">
-        <button id="newChatBtn" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-xs py-2.5 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
+        <button id="newChatBtn" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-xs py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
           <span>New Conversation</span>
         </button>
@@ -72,30 +72,26 @@
 
       <div class="flex-1 overflow-y-auto p-3 space-y-1" id="chatHistoryList">
         <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 px-3 py-2">Recent Chats</div>
-        <!-- Loaded dynamically via js/history.js -->
       </div>
 
       <!-- Sidebar Navigation Links -->
       <div class="p-3 border-t border-slate-800 space-y-1 text-xs">
-        <a href="pages/data-insights.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
+        <a href="/data-insights.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
           <span class="text-base">📊</span> <span>Data Insights</span>
         </a>
-        <a href="pages/work-suggestions.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
+        <a href="/work-suggestions.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
           <span class="text-base">💡</span> <span>Work Suggestions</span>
         </a>
-        <a href="pages/document-reader.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
+        <a href="/document-reader.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
           <span class="text-base">📄</span> <span>Document Reader</span>
         </a>
-        <a href="pages/knowledge-base.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
+        <a href="/knowledge-base.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
           <span class="text-base">📚</span> <span>Knowledge Base</span>
         </a>
-        <a href="pages/image-generator.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
+        <a href="/image-generator.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
           <span class="text-base">🎨</span> <span>AI Image Studio</span>
         </a>
-        <a href="pages/history.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
-          <span class="text-base">🕒</span> <span>All Chat History</span>
-        </a>
-        <a href="pages/settings.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
+        <a href="/settings.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition">
           <span class="text-base">⚙️</span> <span>Settings & API</span>
         </a>
       </div>
@@ -109,10 +105,10 @@
 
         <!-- Welcome Hero Section -->
         <div id="welcomeHero" class="text-center py-12 px-4 space-y-4">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-fuchsia-500 p-0.5 mx-auto shadow-xl shadow-indigo-500/20 flex items-center justify-center text-3xl font-bold text-white">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-fuchsia-500 p-0.5 mx-auto shadow-xl shadow-indigo-500/20 flex items-center justify-center text-3xl font-extrabold text-white">
             F
           </div>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">How can <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-300 to-fuchsia-400">Flex CX</span> assist you today?</h1>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">How can <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-300 to-fuchsia-400">Flex CX</span> help you?</h1>
           <p class="text-slate-400 text-sm max-w-md mx-auto">
             Your professional CX partner, powered by Gemini multi-modal AI for data insights, smart suggestions, and document processing.
           </p>
@@ -143,7 +139,7 @@
       <!-- File Attachment Preview Area -->
       <div id="filePreviewBar" class="hidden px-6 py-2 bg-slate-900/60 border-t border-slate-800/80 flex items-center gap-2 max-w-4xl mx-auto w-full">
         <span class="text-xs text-indigo-300 font-semibold flex items-center gap-1.5" id="fileNameDisplay">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.414a6 6 0 108.486 8.486L20.5 13"/></svg>
           <span id="attachedFileName">file.png</span>
         </span>
         <button id="removeFileBtn" class="text-slate-400 hover:text-red-400 text-xs font-bold">✕</button>
@@ -156,18 +152,18 @@
           <input type="file" id="fileUploadInput" class="hidden" accept="image/*,text/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
 
           <button type="button" id="uploadFileBtn" class="p-2 text-slate-400 hover:text-indigo-400 transition rounded-xl hover:bg-slate-800" title="Attach file or image">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.414a6 6 0 108.486 8.486L20.5 13"/></svg>
           </button>
 
           <button type="button" id="voiceMicBtn" class="p-2 text-slate-400 hover:text-cyan-400 transition rounded-xl hover:bg-slate-800 relative" title="Voice Input (Speech to Text)">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m0 0V5a7 7 0 0114 0v6z"/></svg>
             <span id="micPulse" class="hidden absolute top-1 right-1 w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
           </button>
 
           <textarea id="userInput" rows="1" placeholder="Ask Flex CX anything or speak..." class="flex-1 bg-transparent px-3 py-1.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none resize-none max-h-32"></textarea>
 
           <button type="button" id="voiceSpeakToggleBtn" class="p-2 text-slate-400 hover:text-fuchsia-400 transition rounded-xl hover:bg-slate-800" title="Toggle Auto Voice Output (Text to Speech)">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707a1 1 0 011.414 0l4.707 4.707H20a1 1 0 011 1v4a1 1 0 01-1 1h-1.586l-4.707 4.707a1 1 0 01-1.414 0L5.586 15z"/></svg>
           </button>
 
           <button type="submit" id="sendBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-xl transition shadow-md shadow-indigo-600/30 flex items-center justify-center">
@@ -186,18 +182,18 @@
   </div>
 
   <!-- Scripts -->
-  <script src="config.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/storage.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/voice.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/history.js"></script>
-  <script src="js/image.js"></script>
-  <script src="js/chat.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="app.js"></script>
+  <script src="/config.js"></script>
+  <script src="/utils.js"></script>
+  <script src="/storage.js"></script>
+  <script src="/theme.js"></script>
+  <script src="/voice.js"></script>
+  <script src="/api/api.js"></script>
+  <script src="/auth.js"></script>
+  <script src="/history.js"></script>
+  <script src="/image.js"></script>
+  <script src="/api/chat.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/app.js"></script>
 
   <!-- PWA Service Worker Registration -->
   <script>
