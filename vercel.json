@@ -1,9 +1,24 @@
 {
   "version": 2,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/server.js"
+      "src": "/api/api.js",
+      "dest": "/api.js"
+    },
+    {
+      "src": "/api/chat.js",
+      "dest": "/chat.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/server.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
