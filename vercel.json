@@ -1,39 +1,23 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "api/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
-    {
-      "src": "/api/api.js",
-      "dest": "/api.js"
-    },
-    {
-      "src": "/api/chat.js",
-      "dest": "/chat.js"
-    },
     {
       "src": "/api/(.*)",
       "dest": "/api/server.js"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
+      "dest": "/$1"
     }
   ]
 }
