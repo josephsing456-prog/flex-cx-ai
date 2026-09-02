@@ -4,5 +4,10 @@
       "source": "/api/:path*",
       "destination": "/api/server.js"
     }
-  ]
+  ],
+  "functions": {
+    "api/server.js": {
+      "includeFiles": "public/**"
+    }
+  }
 }
