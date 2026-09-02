@@ -1,0 +1,13 @@
+.settings-container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.settings-section {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}

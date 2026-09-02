@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+  .user-msg-bubble, .ai-msg-bubble {
+    max-width: 95%;
+  }
+}
