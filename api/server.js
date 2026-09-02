@@ -1,39 +1,3 @@
-// Flex CX Backend Server Engine - Vercel Production Ready
-
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const path = require('path');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-
-// Load environment variables
-dotenv.config();
-
-const app = express();
-
-// ============================================================
-// ENVIRONMENT
-// ============================================================
-
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-
-// Do NOT crash the Vercel function if the key is missing.
-// The API endpoints will return a proper error instead.
-if (!GEMINI_API_KEY) {
-  console.warn('⚠️ GEMINI_API_KEY is not configured.');
-}
-
-// Initialize Gemini only when API key exists
-const genAI = GEMINI_API_KEY
-  ? new GoogleGenerativeAI(GEMINI_API_KEY)
-  : null;
-
-// ============================================================
-// MIDDLEWARE
-// ============================================================
-
-app.use(
-  cors({
     origin: true,
     credentials: true
   })
