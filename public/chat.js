@@ -100,7 +100,17 @@ window.ZexChat = {
 
     try {
       const model = document.getElementById('modelSelector')?.value || window.ZEX_CONFIG.defaultModel;
-      const data = await window.ZexApi.sendMessage(messageText, model, [], fileData, fileName);
+
+      // Send prior messages of this session (including any earlier images)
+      // so the AI keeps context instead of forgetting past turns.
+      const currentSession = window.ZexHistory.sessions.find(
+        (s) => s.id === window.ZexHistory.activeSessionId
+      );
+      const conversationHistory = currentSession && currentSession.messages
+        ? currentSession.messages.slice(0, -1).slice(-20)
+        : [];
+
+      const data = await window.ZexApi.sendMessage(messageText, model, conversationHistory, fileData, fileName);
 
       // Remove typing bubble
       document.getElementById(typingId)?.remove();
