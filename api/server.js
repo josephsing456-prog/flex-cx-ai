@@ -53,6 +53,40 @@ const requireGemini = (res) => {
   return true;
 };
 
+// Parse a data URL like "data:image/png;base64,AAAA..." into { mimeType, data }
+const parseDataUrl = (dataUrl) => {
+  if (!dataUrl || typeof dataUrl !== 'string') return null;
+
+  const match = /^data:([^;]+);base64,(.+)$/.exec(dataUrl);
+
+  if (!match) return null;
+
+  return { mimeType: match[1], data: match[2] };
+};
+
+// Build Gemini "parts" for one message, embedding the actual image
+// bytes when present so the model can see and remember it.
+const buildParts = (text, fileData, fileName) => {
+  const parts = [];
+  const parsed = parseDataUrl(fileData);
+
+  if (parsed && parsed.mimeType.startsWith('image/')) {
+    parts.push({
+      inlineData: {
+        mimeType: parsed.mimeType,
+        data: parsed.data
+      }
+    });
+  } else if (fileData && fileName) {
+    // Non-image attachment: at least mention it in the text
+    text = `${text || ''}\n[Attached file: ${fileName}]`;
+  }
+
+  parts.push({ text: text || '' });
+
+  return parts;
+};
+
 // ============================================================
 // HEALTH CHECK
 // ============================================================
@@ -99,49 +133,28 @@ app.post(
         model
       });
 
-      // Build conversation history
-      const contents = [
-        ...history.map((msg) => ({
-          role: msg.sender === 'user' ? 'user' : 'model',
-          parts: [
-            {
-              text: msg.text || ''
-            }
-          ]
-        })),
-        {
-          role: 'user',
-          parts: [
-            {
-              text: message
-            }
-          ]
-        }
-      ];
-
-      // Handle optional file attachment
-      let messageContent = message;
-
       if (fileData && fileName) {
-        messageContent += `\n[Attached file: ${fileName}]`;
-
         console.log(
           `[API] Processing file attachment: ${fileName}`
         );
       }
 
+      // Build full conversation, including any images from earlier turns,
+      // and actually send it to Gemini (previously this was built but ignored).
+      const contents = [
+        ...history.map((msg) => ({
+          role: msg.sender === 'user' ? 'user' : 'model',
+          parts: buildParts(msg.text || '', msg.fileData, msg.fileName)
+        })),
+        {
+          role: 'user',
+          parts: buildParts(message, fileData, fileName)
+        }
+      ];
+
       // Generate Gemini response
       const result = await geminiModel.generateContent({
-        contents: [
-          {
-            role: 'user',
-            parts: [
-              {
-                text: messageContent
-              }
-            ]
-          }
-        ]
+        contents
       });
 
       const aiResponse = result.response.text();
